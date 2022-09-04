@@ -1,0 +1,13 @@
+app: serverless-nextjs
+stage: ${env.STAGE}
+serverlessNextjs:
+  component: "@sls-next/serverless-component@3.7"
+  inputs:
+    cloudfront:
+      distributionId: ${env.DISTRIBUTION_ID}
+    bucketRegion: ap-northeast-2
+    bucketName: "${app}-${stage}-bucket"
+    name:
+      defaultLambda: "${app}-${stage}-ssr-lambda"
+      apiLambda: "${app}-${stage}-api-lambda"
+      imageLambda: "${app}-${stage}-image-lambda"
