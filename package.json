@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix"
+    "lint": "next lint --fix",
+    "clear:next": "rimraf .next",
+    "clear:serverless": "rimraf .serverless*",
+    "clear": "yarn run clear:serverless && yarn run clear:next",
+    "deploy": "yarn run clear && npx serverless@2.72.2"
   },
   "dependencies": {
     "next": "12.2.5",
@@ -22,6 +26,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
     "typescript": "4.8.2"
   }
 }
